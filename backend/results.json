@@ -1,0 +1,38 @@
+[
+  {
+    "input": [
+      "10",
+      "5"
+    ],
+    "expectedOutput": "50",
+    "actualOutput": "50",
+    "success": true
+  },
+  {
+    "input": [
+      "20",
+      "13"
+    ],
+    "expectedOutput": "33",
+    "actualOutput": "260",
+    "success": false
+  },
+  {
+    "input": [
+      "334",
+      "679"
+    ],
+    "expectedOutput": "1013",
+    "actualOutput": "226786",
+    "success": false
+  },
+  {
+    "input": [
+      "1000000",
+      "2325252"
+    ],
+    "expectedOutput": "3325252",
+    "actualOutput": "1674692864",
+    "success": false
+  }
+]
