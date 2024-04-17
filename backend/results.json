@@ -5,8 +5,8 @@
       "5"
     ],
     "expectedOutput": "50",
-    "actualOutput": "50",
-    "success": true
+    "actualOutput": "2",
+    "success": false
   },
   {
     "input": [
@@ -14,7 +14,7 @@
       "13"
     ],
     "expectedOutput": "33",
-    "actualOutput": "260",
+    "actualOutput": "1",
     "success": false
   },
   {
@@ -23,16 +23,61 @@
       "679"
     ],
     "expectedOutput": "1013",
-    "actualOutput": "226786",
+    "actualOutput": "0",
     "success": false
   },
   {
     "input": [
-      "1000000",
-      "2325252"
+      "100",
+      "20"
     ],
-    "expectedOutput": "3325252",
-    "actualOutput": "1674692864",
+    "expectedOutput": "80",
+    "actualOutput": "5",
     "success": false
+  },
+  {
+    "input": [
+      "50",
+      "7"
+    ],
+    "expectedOutput": "350",
+    "actualOutput": "7",
+    "success": false
+  },
+  {
+    "input": [
+      "87",
+      "70"
+    ],
+    "expectedOutput": "17",
+    "actualOutput": "1",
+    "success": false
+  },
+  {
+    "input": [
+      "90",
+      "50"
+    ],
+    "expectedOutput": "40",
+    "actualOutput": "1",
+    "success": false
+  },
+  {
+    "input": [
+      "50",
+      "10"
+    ],
+    "expectedOutput": "5",
+    "actualOutput": "5",
+    "success": true
+  },
+  {
+    "input": [
+      "49",
+      "7"
+    ],
+    "expectedOutput": "7",
+    "actualOutput": "7",
+    "success": true
   }
 ]

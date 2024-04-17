@@ -29,12 +29,13 @@ app.post('/evaluate', (req, res) => {
     } else if (language === 'java') {
         fileName = 'Main.java';
         fs.writeFileSync(fileName, code);
+        compileCommand = ['javac', fileName];
     } else {
         return res.status(400).json({ error: 'Unsupported Language', message: 'The API only supports C++, C, Python, and Java languages' });
     }
 
     // Compile code if necessary
-    if (language === 'cpp' || language === 'c') {
+    if (language === 'cpp' || language === 'c' || language === 'java') {
         const compileResult = spawnSync(compileCommand[0], compileCommand.slice(1));
         if (compileResult.status !== 0) {
             const errorMessage = compileResult.stderr.toString();
@@ -63,13 +64,9 @@ app.post('/evaluate', (req, res) => {
             output = spawnSync('python', [fileName], { input, encoding: 'utf-8' }).stdout.trim();
             success = output === expectedOutput;
         } else if (language === 'java') {
-            const compileResult = spawnSync('javac', [fileName]);
-            if (compileResult.status !== 0) {
-                const errorMessage = compileResult.stderr.toString();
-                return res.status(400).json({ error: 'Compilation Error', message: errorMessage });
-            }
-            const javaClassName = fileName.split('.')[0];
-            output = spawnSync('java', [javaClassName], { input, encoding: 'utf-8' }).stdout.trim();
+            const className = fileName.replace('.java', '');
+            const javaProcess = spawnSync('java', [className], { input, encoding: 'utf-8' });
+            output = javaProcess.stdout.trim();
             success = output === expectedOutput;
         }
 

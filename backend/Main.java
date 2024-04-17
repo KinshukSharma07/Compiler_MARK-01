@@ -7,7 +7,7 @@ public class Main {
         try {
             int num1 = scanner.nextInt();
             int num2 = scanner.nextInt();
-            int sum = num1 * num2;
+            int sum = num1 + num2;
             System.out.println(sum);
         } catch (Exception e) {
             System.out.println("Error: " + e);
