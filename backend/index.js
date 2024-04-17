@@ -23,15 +23,19 @@ app.post('/evaluate', (req, res) => {
     } else if (language === 'c') {
         fileName = 'user_code.c';
         compileCommand = ['gcc', fileName, '-o', 'user_code'];
+    } else if (language === 'python') {
+        fileName = 'user_code.py';
+        fs.writeFileSync(fileName, code);
+    } else if (language === 'java') {
+        fileName = 'Main.java';
+        fs.writeFileSync(fileName, code);
     } else {
-        return res.status(400).json({ error: 'Unsupported Language', message: 'The API only supports C++ and C languages' });
+        return res.status(400).json({ error: 'Unsupported Language', message: 'The API only supports C++, C, Python, and Java languages' });
     }
-    fs.writeFileSync(fileName, code);
 
     // Compile code if necessary
-    let compileResult;
     if (language === 'cpp' || language === 'c') {
-        compileResult = spawnSync(compileCommand[0], compileCommand.slice(1));
+        const compileResult = spawnSync(compileCommand[0], compileCommand.slice(1));
         if (compileResult.status !== 0) {
             const errorMessage = compileResult.stderr.toString();
             return res.status(400).json({ error: 'Compilation Error', message: errorMessage });
@@ -54,6 +58,18 @@ app.post('/evaluate', (req, res) => {
         let success;
         if (language === 'cpp' || language === 'c') {
             output = spawnSync('./user_code', { input, encoding: 'utf-8' }).stdout.trim();
+            success = output === expectedOutput;
+        } else if (language === 'python') {
+            output = spawnSync('python', [fileName], { input, encoding: 'utf-8' }).stdout.trim();
+            success = output === expectedOutput;
+        } else if (language === 'java') {
+            const compileResult = spawnSync('javac', [fileName]);
+            if (compileResult.status !== 0) {
+                const errorMessage = compileResult.stderr.toString();
+                return res.status(400).json({ error: 'Compilation Error', message: errorMessage });
+            }
+            const javaClassName = fileName.split('.')[0];
+            output = spawnSync('java', [javaClassName], { input, encoding: 'utf-8' }).stdout.trim();
             success = output === expectedOutput;
         }
 
