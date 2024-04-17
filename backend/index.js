@@ -31,7 +31,7 @@ app.post('/evaluate', (req, res) => {
     // Compile code if necessary
     let compileResult;
     if (language === 'cpp' || language === 'c') {
-        compileResult = spawnSync(...compileCommand);
+        compileResult = spawnSync(compileCommand[0], compileCommand.slice(1));
         if (compileResult.status !== 0) {
             const errorMessage = compileResult.stderr.toString();
             return res.status(400).json({ error: 'Compilation Error', message: errorMessage });
