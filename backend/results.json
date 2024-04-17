@@ -5,7 +5,7 @@
       "5"
     ],
     "expectedOutput": "50",
-    "actualOutput": "2",
+    "actualOutput": "15",
     "success": false
   },
   {
@@ -14,8 +14,8 @@
       "13"
     ],
     "expectedOutput": "33",
-    "actualOutput": "1",
-    "success": false
+    "actualOutput": "33",
+    "success": true
   },
   {
     "input": [
@@ -23,8 +23,8 @@
       "679"
     ],
     "expectedOutput": "1013",
-    "actualOutput": "0",
-    "success": false
+    "actualOutput": "1013",
+    "success": true
   },
   {
     "input": [
@@ -32,7 +32,7 @@
       "20"
     ],
     "expectedOutput": "80",
-    "actualOutput": "5",
+    "actualOutput": "120",
     "success": false
   },
   {
@@ -41,7 +41,7 @@
       "7"
     ],
     "expectedOutput": "350",
-    "actualOutput": "7",
+    "actualOutput": "57",
     "success": false
   },
   {
@@ -50,7 +50,7 @@
       "70"
     ],
     "expectedOutput": "17",
-    "actualOutput": "1",
+    "actualOutput": "157",
     "success": false
   },
   {
@@ -59,7 +59,7 @@
       "50"
     ],
     "expectedOutput": "40",
-    "actualOutput": "1",
+    "actualOutput": "140",
     "success": false
   },
   {
@@ -68,8 +68,8 @@
       "10"
     ],
     "expectedOutput": "5",
-    "actualOutput": "5",
-    "success": true
+    "actualOutput": "60",
+    "success": false
   },
   {
     "input": [
@@ -77,7 +77,7 @@
       "7"
     ],
     "expectedOutput": "7",
-    "actualOutput": "7",
-    "success": true
+    "actualOutput": "56",
+    "success": false
   }
 ]

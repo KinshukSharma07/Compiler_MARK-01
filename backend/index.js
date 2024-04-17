@@ -9,10 +9,29 @@ const port = 5000;
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// Endpoint to receive code and language from frontend
-app.post('/evaluate', (req, res) => {
-    const { code, language } = req.body;
-    console.log(req.body);
+// Endpoint to receive C++ code from frontend
+app.post('/evaluate/cpp', (req, res) => {
+    handleEvaluation(req, res, 'cpp');
+});
+
+// Endpoint to receive C code from frontend
+app.post('/evaluate/c', (req, res) => {
+    handleEvaluation(req, res, 'c');
+});
+
+// Endpoint to receive Python code from frontend
+app.post('/evaluate/python', (req, res) => {
+    handleEvaluation(req, res, 'python');
+});
+
+// Endpoint to receive Java code from frontend
+app.post('/evaluate/java', (req, res) => {
+    handleEvaluation(req, res, 'java');
+});
+
+// Function to handle evaluation for all languages
+function handleEvaluation(req, res, language) {
+    const { code } = req.body;
 
     // Write code to a file
     let fileName;
@@ -84,7 +103,7 @@ app.post('/evaluate', (req, res) => {
 
     // Send response to frontend
     res.json(results);
-});
+}
 
 // Start the server
 app.listen(port, () => {
