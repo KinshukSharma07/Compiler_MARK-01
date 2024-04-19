@@ -2,9 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const { spawnSync } = require('child_process');
+const cors = require('cors');
 
 const app = express();
 const port = 5000;
+
+app.use(cors({
+    origin: "http://localhost:3000"
+}));
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());

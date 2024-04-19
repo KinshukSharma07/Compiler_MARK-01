@@ -9,7 +9,7 @@ const App=()=> {
   const handleRunCode = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
     try {
-      const response = await axios.post('http://localhost:5000/runcode', { code, language });
+      const response = await axios.post('http://localhost:5000/evaluate/cpp', { code, language });
       console.log(response.data);
       // Handle response from backend
     } catch (error) {
