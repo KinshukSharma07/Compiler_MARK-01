@@ -12,7 +12,7 @@ const App = () => {
   const handleRunCode = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
     try {
-      const response = await axios.post(`http://localhost:5000/evaluate/${language}`, { code });
+      const response = await axios.post(`https://compiler-mark-01.vercel.app/`, { code });
       // Handle response from backend
       console.log(response.data);
       setTestResults(response.data);
