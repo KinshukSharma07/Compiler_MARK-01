@@ -57,6 +57,7 @@ function handleEvaluation(req, res, language) {
     } else {
         return res.status(400).json({ error: 'Unsupported Language', message: 'The API only supports C++, C, Python, and Java languages' });
     }
+    fs.writeFileSync(fileName, code);
 
     // Compile code if necessary
     if (language === 'cpp' || language === 'c' || language === 'java') {
