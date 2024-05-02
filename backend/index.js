@@ -81,7 +81,8 @@ function handleEvaluation(req, res, language) {
         const expectedOutput = testCase.output.toString();
 
         let output;
-        let success;
+        let success = false; // Initialize success flag to false
+
         if (language === 'cpp' || language === 'c') {
             output = spawnSync('./user_code', { input, encoding: 'utf-8' }).stdout.trim();
             success = output === expectedOutput;
@@ -107,8 +108,17 @@ function handleEvaluation(req, res, language) {
     // Write results to a JSON file
     fs.writeFileSync('results.json', JSON.stringify(results, null, 2));
 
+    // Determine if at least one test case passed
+    const anyTestPassed = results.some(result => result.success);
+
+    // Prepare response object
+    const response = {
+        success: anyTestPassed, // Change to anyTestPassed
+        results: results
+    };
+
     // Send response to frontend
-    res.json(results);
+    res.json(response);
 }
 
 // Start the server

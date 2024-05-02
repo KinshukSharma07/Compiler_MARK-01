@@ -1,10 +1,9 @@
-arr = []
-for _ in range(5):
-    arr.append(int(input()))
+# Store input numbers
+num1 = input('Enter first number: ')
+num2 = input('Enter second number: ')
 
-max_val = arr[0]  # Initialize max to the first element
-for num in arr[1:]:
-    if num > max_val:
-        max_val = num  # Update max if the current element is larger
+# Add two numbers
+sum = float(num1) + float(num2)
 
-print(max_val)  # Output the maximum value
+# Display the sum
+print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
