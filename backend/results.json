@@ -8,7 +8,11 @@
       "o"
     ],
     "expectedOutput": "ehllo",
+<<<<<<< HEAD
     "actualOutput": "7935232",
+=======
+    "actualOutput": "4200960",
+>>>>>>> 529990bd03bca1377f4bdb0151044443c289005f
     "success": false
   },
   {
