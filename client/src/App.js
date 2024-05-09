@@ -9,7 +9,7 @@ const App=()=> {
   const handleRunCode = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
     try {
-      const response = await axios.post('http://localhost:5000/evaluate/cpp', { code, language });
+      const response = await axios.post('http://localhost:5000/evaluate/c', { code, language });
       console.log(response.data);
       // Handle response from backend
     } catch (error) {
@@ -39,7 +39,7 @@ const App=()=> {
           onChange={(e) => setLanguage(e.target.value)}
         >
           <option value="" disabled>Select language</option>
-          <option value="js">JavaScript</option>
+          <option value="c">C</option>
           <option value="py">Python</option>
           <option value="java">Java</option>
           <option value="cpp">C++</option> {/* Added C++ option */}
@@ -47,8 +47,7 @@ const App=()=> {
       </div>
       <button
           type="submit"
-          className="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none"
-      >Submit</button>
+          className="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none">Submit</button>
     </form>
   );
 }

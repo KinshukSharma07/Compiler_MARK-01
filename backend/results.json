@@ -8,8 +8,8 @@
       "o"
     ],
     "expectedOutput": "ehllo",
-    "actualOutput": "ehllo",
-    "success": true
+    "actualOutput": "7935232",
+    "success": false
   },
   {
     "input": [
@@ -17,8 +17,8 @@
       "13"
     ],
     "expectedOutput": "33",
-    "actualOutput": "0123",
-    "success": false
+    "actualOutput": "33",
+    "success": true
   },
   {
     "input": [
@@ -26,8 +26,8 @@
       "679"
     ],
     "expectedOutput": "1013",
-    "actualOutput": "334679",
-    "success": false
+    "actualOutput": "1013",
+    "success": true
   },
   {
     "input": [
@@ -35,7 +35,7 @@
       "20"
     ],
     "expectedOutput": "80",
-    "actualOutput": "00012",
+    "actualOutput": "120",
     "success": false
   },
   {
@@ -44,7 +44,7 @@
       "7"
     ],
     "expectedOutput": "350",
-    "actualOutput": "057",
+    "actualOutput": "57",
     "success": false
   },
   {
@@ -53,7 +53,7 @@
       "70"
     ],
     "expectedOutput": "17",
-    "actualOutput": "0778",
+    "actualOutput": "157",
     "success": false
   },
   {
@@ -65,7 +65,7 @@
       3
     ],
     "expectedOutput": "1,3,6,7,8",
-    "actualOutput": "13678",
+    "actualOutput": "13",
     "success": false
   },
   {
@@ -74,7 +74,7 @@
       "10"
     ],
     "expectedOutput": "5",
-    "actualOutput": "0015",
+    "actualOutput": "60",
     "success": false
   },
   {
@@ -83,7 +83,7 @@
       "7"
     ],
     "expectedOutput": "7",
-    "actualOutput": "479",
+    "actualOutput": "56",
     "success": false
   }
 ]

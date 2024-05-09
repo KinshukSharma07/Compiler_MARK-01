@@ -3,15 +3,10 @@
 using namespace std;
 
 int main() {
-    // Prompt the user to enter a string
-    string input;
-    getline(cin, input); // Read the entire line including spaces
-
-    // Sort the string
-    sort(input.begin(), input.end());
-
-    // Display the sorted string
-    cout << input << endl;
-
+  int x;
+  int y;
+  cin>>x>>y;
+  int ans=x+y;
+  cout<<ans;
     return 0;
 }
